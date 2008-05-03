@@ -1,0 +1,6 @@
+lib/Catalyst/Plugin/InflateMore.pm
+Makefile.PL
+MANIFEST			This list of files
+META.yml
+README
+t/10base.t

@@ -1,0 +1,24 @@
+---
+name: Catalyst-Plugin-InflateMore
+version: 0.1.6
+author:
+  - 'Peter Flanigan,  C<< <Support at RoxSoft.co.uk> >>'
+abstract: Inflates symbols in application config
+license: perl
+resources:
+  license: http://dev.perl.org/licenses/
+requires:
+  Catalyst: 5.7012
+  Class::C3: 0.19
+  Class::Data::Accessor: 0.04001
+  Data::Visitor: 0.08
+  Path::Class: 0.16
+  perl: 5.8
+provides:
+  Catalyst::Plugin::InflateMore:
+    file: lib/Catalyst/Plugin/InflateMore.pm
+    version: 0.1.6
+generated_by: Module::Build version 0.2808
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.2.html
+  version: 1.2
