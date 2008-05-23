@@ -1,0 +1,7 @@
+2008-05-23  Peter Flanigan  <pjf@localhost>
+
+	* lib/Catalyst/Plugin/InflateMore.pm:
+
+	Added POD and POD coverage tests
+
+

@@ -10,7 +10,8 @@ WriteMakefile
                            'Class::C3' => '0.19',
                            'Class::Data::Accessor' => '0.04001',
                            'Data::Visitor' => '0.08',
-                           'Path::Class' => '0.16'
+                           'Path::Class' => '0.16',
+                           'version' => '0.74'
                          },
           'INSTALLDIRS' => 'site',
           'EXE_FILES' => [],

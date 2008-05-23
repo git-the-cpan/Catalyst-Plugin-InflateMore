@@ -1,6 +1,6 @@
 package Catalyst::Plugin::InflateMore;
 
-# @(#)$Id: InflateMore.pm 6 2008-05-02 23:49:09Z pjf $
+# @(#)$Id: InflateMore.pm 11 2008-05-23 20:46:59Z pjf $
 
 use strict;
 use warnings;
@@ -10,7 +10,7 @@ use Class::C3;
 use Data::Visitor::Callback;
 use Path::Class;
 
-use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 6 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 11 $ =~ /\d+/gmx );
 
 __PACKAGE__->mk_classaccessors( qw(_inflation_class) );
 
@@ -68,7 +68,7 @@ Catalyst::Plugin::InflateMore - Inflates symbols in application config
 
 =head1 Version
 
-0.1.$Revision: 6 $
+0.1.$Revision: 11 $
 
 =head1 Synopsis
 
@@ -80,6 +80,12 @@ If symbols like __MYSYMBOL__, __BINSDIR__, or __binsdir()__ are
 present in the application config they will be inflated to the
 appropriate directory paths if the coresponding lower case method name
 is defined in the inflation class
+
+=head1 Configuration and Environment
+
+The B<Plugin::InflateMore> attribute in the application config hash
+contains the name of the class whoose methods will do the actual
+inflating
 
 =head1 Subroutines/Methods
 
@@ -102,14 +108,9 @@ passed
 
 None
 
-=head1 Configuration and Environment
-
-The parameter C<$c-E<gt>config-E<gt>{'Plugin::InflateMore'}> contains
-the name of the class whoose methods will do the actual inflating
-
 =head1 Dependencies
 
-=over 4
+=over 3
 
 =item L<Catalyst::Utils>
 
@@ -139,14 +140,14 @@ Peter Flanigan,  C<< <Support at RoxSoft.co.uk> >>
 
 =head1 License and Copyright
 
-Copyright (c) 2008 Peter Flanigan. All rights reserved.
+Copyright (c) 2008 Peter Flanigan. All rights reserved
 
 This program is free software; you can redistribute it and/or modify it
-under the same terms as Perl itself. See L<perlartistic>.
+under the same terms as Perl itself. See L<perlartistic>
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE
 
 =cut
 
