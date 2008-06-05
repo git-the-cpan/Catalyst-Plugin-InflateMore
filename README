@@ -2,7 +2,7 @@ Name
     Catalyst::Plugin::InflateMore - Inflates symbols in application config
 
 Version
-    0.1.$Revision: 11 $
+    0.1.$Revision: 12 $
 
 Synopsis
        use Catalyst qw(InflateMore ConfigLoader ...);
