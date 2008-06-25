@@ -1,6 +1,6 @@
 ---
 name: Catalyst-Plugin-InflateMore
-version: 0.1.20
+version: 0.1.21
 author:
   - 'Peter Flanigan,  C<< <Support at RoxSoft.co.uk> >>'
 abstract: Inflates symbols in application config
@@ -17,12 +17,13 @@ requires:
   version: 0.74
 build_requires:
   Test::More: 0.74
+configure_requires:
   version: 0.74
 provides:
   Catalyst::Plugin::InflateMore:
     file: lib/Catalyst/Plugin/InflateMore.pm
-    version: 0.1.20
+    version: 0.1.21
 generated_by: Module::Build version 0.2808
 meta-spec:
-  url: http://module-build.sourceforge.net/META-spec-v1.2.html
-  version: 1.2
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4

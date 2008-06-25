@@ -1,6 +1,6 @@
 package Catalyst::Plugin::InflateMore;
 
-# @(#)$Id: InflateMore.pm 20 2008-06-24 15:38:00Z pjf $
+# @(#)$Id: InflateMore.pm 21 2008-06-25 12:50:07Z pjf $
 
 use strict;
 use warnings;
@@ -10,7 +10,7 @@ use Class::C3;
 use Data::Visitor::Callback;
 use Path::Class;
 
-use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 20 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 21 $ =~ /\d+/gmx );
 
 __PACKAGE__->mk_classaccessors( qw(_inflation_class) );
 
@@ -68,7 +68,7 @@ Catalyst::Plugin::InflateMore - Inflates symbols in application config
 
 =head1 Version
 
-0.1.$Revision: 20 $
+0.1.$Revision: 21 $
 
 =head1 Synopsis
 
@@ -155,4 +155,3 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE
 # mode: perl
 # tab-width: 3
 # End:
-
