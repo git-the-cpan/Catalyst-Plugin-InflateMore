@@ -1,6 +1,6 @@
 package Catalyst::Plugin::InflateMore;
 
-# @(#)$Id: InflateMore.pm 21 2008-06-25 12:50:07Z pjf $
+# @(#)$Id: InflateMore.pm 26 2008-09-06 13:45:01Z pjf $
 
 use strict;
 use warnings;
@@ -10,7 +10,7 @@ use Class::C3;
 use Data::Visitor::Callback;
 use Path::Class;
 
-use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 21 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 26 $ =~ /\d+/gmx );
 
 __PACKAGE__->mk_classaccessors( qw(_inflation_class) );
 
@@ -68,7 +68,7 @@ Catalyst::Plugin::InflateMore - Inflates symbols in application config
 
 =head1 Version
 
-0.1.$Revision: 21 $
+0.1.$Revision: 26 $
 
 =head1 Synopsis
 
@@ -76,14 +76,14 @@ Catalyst::Plugin::InflateMore - Inflates symbols in application config
 
 =head1 Description
 
-If symbols like __MYSYMBOL__, __BINSDIR__, or __binsdir()__ are
-present in the application config they will be inflated to the
+If symbols like I<__MYSYMBOL__>, I<__BINSDIR__>, or I<__binsdir()__>
+are present in the application config they will be inflated to the
 appropriate directory paths if the coresponding lower case method name
 is defined in the inflation class
 
 =head1 Configuration and Environment
 
-The B<Plugin::InflateMore> attribute in the application config hash
+The I<Plugin::InflateMore> attribute in the application config hash
 contains the name of the class whoose methods will do the actual
 inflating
 
@@ -95,13 +95,13 @@ Create an instance of the class that will do the inflating
 
 =head2 finalize_config
 
-Override C::P::ConfigLoader method. Inflates any symbols matching the
-patters __SYMBOL__ and __symbol( value )__
+Override L<Catalyst::Plugin::ConfigLoader> method. Inflates any
+symbols matching the patters I<__SYMBOL__> and I<__symbol( value )__>
 
 =head2 _inflate
 
 Call the appropriate method to get the base path and append any
-arguments. Returns a Path::Class object representing the arguments
+arguments. Returns a L<Path::Class> object representing the arguments
 passed
 
 =head1 Diagnostics

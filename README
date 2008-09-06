@@ -2,19 +2,19 @@ Name
     Catalyst::Plugin::InflateMore - Inflates symbols in application config
 
 Version
-    0.1.$Revision: 21 $
+    0.1.$Revision: 26 $
 
 Synopsis
        use Catalyst qw(InflateMore ConfigLoader ...);
 
 Description
-    If symbols like __MYSYMBOL__, __BINSDIR__, or __binsdir()__ are present
-    in the application config they will be inflated to the appropriate
-    directory paths if the coresponding lower case method name is defined in
-    the inflation class
+    If symbols like *__MYSYMBOL__*, *__BINSDIR__*, or *__binsdir()__* are
+    present in the application config they will be inflated to the
+    appropriate directory paths if the coresponding lower case method name
+    is defined in the inflation class
 
 Configuration and Environment
-    The Plugin::InflateMore attribute in the application config hash
+    The *Plugin::InflateMore* attribute in the application config hash
     contains the name of the class whoose methods will do the actual
     inflating
 
@@ -23,8 +23,8 @@ Subroutines/Methods
     Create an instance of the class that will do the inflating
 
   finalize_config
-    Override C::P::ConfigLoader method. Inflates any symbols matching the
-    patters __SYMBOL__ and __symbol( value )__
+    Override Catalyst::Plugin::ConfigLoader method. Inflates any symbols
+    matching the patters *__SYMBOL__* and *__symbol( value )__*
 
   _inflate
     Call the appropriate method to get the base path and append any

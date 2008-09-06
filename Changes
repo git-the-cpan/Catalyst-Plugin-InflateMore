@@ -1,3 +1,9 @@
+2008-09-06
+
+	* lib/Catalyst/Plugin/InflateMore.pm:
+
+	Tweaked POD. Bumping release to fix broken CPAN Testers database
+
 2008-06-02
 
 	* Build.PL:
