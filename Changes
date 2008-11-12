@@ -1,4 +1,7 @@
-Revision history for Data::CloudWeights
+Revision history for Catalyst::Plugin::InflateMore
+
+0.1.34   12/11/2008
+         - New approach to CPAN Testers
 
 0.1.32   27/10/2008
          - Tried to find the CPAN testers off switch again

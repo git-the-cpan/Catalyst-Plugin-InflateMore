@@ -2,7 +2,7 @@ Name
     Catalyst::Plugin::InflateMore - Inflates symbols in application config
 
 Version
-    0.1.$Revision: 32 $
+    0.1.$Revision: 34 $
 
 Synopsis
        use Catalyst qw(InflateMore ConfigLoader ...);
@@ -20,13 +20,16 @@ Configuration and Environment
 
 Subroutines/Methods
   setup
+
     Create an instance of the class that will do the inflating
 
   finalize_config
+
     Override Catalyst::Plugin::ConfigLoader method. Inflates any symbols
     matching the patters *__SYMBOL__* and *__symbol( value )__*
 
   _inflate
+
     Call the appropriate method to get the base path and append any
     arguments. Returns a Path::Class object representing the arguments
     passed
@@ -40,7 +43,6 @@ Dependencies
     Class::Data::Accessor
     Data::Visitor::Callback
     Path::Class
-
 Incompatibilities
     There are no known incompatibilities in this module
 
@@ -49,7 +51,7 @@ Bugs and Limitations
     address below. Patches are welcome
 
 Author
-    Peter Flanigan, "<Support at RoxSoft.co.uk>"
+    Peter Flanigan, `<Support at RoxSoft.co.uk>'
 
 License and Copyright
     Copyright (c) 2008 Peter Flanigan. All rights reserved
