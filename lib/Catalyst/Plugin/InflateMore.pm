@@ -1,6 +1,6 @@
 package Catalyst::Plugin::InflateMore;
 
-# @(#)$Id: InflateMore.pm 36 2008-11-14 03:42:53Z pjf $
+# @(#)$Id: InflateMore.pm 41 2009-03-14 16:34:28Z pjf $
 
 use strict;
 use warnings;
@@ -10,21 +10,21 @@ use Class::C3;
 use Data::Visitor::Callback;
 use Path::Class;
 
-use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 36 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 41 $ =~ /\d+/gmx );
 
-__PACKAGE__->mk_classaccessors( qw(_inflation_class) );
+__PACKAGE__->mk_classaccessors( qw(_inflator) );
+
+my $SEP = q(/);
 
 sub setup {
    my ($app, @rest) = @_;
 
-   if (my $class = $app->config->{ 'Plugin::InflateMore' }) {
-      delete $app->config->{ 'Plugin::InflateMore' };
+   if (my $class = delete $app->config->{ 'Plugin::InflateMore' }) {
       Catalyst::Utils::ensure_class_loaded( $class );
-      $app->_inflation_class( $class->new( $app ) );
+      $app->_inflator( $class->new( $app ) );
    }
 
    return $app->next::method( @rest );
-
 }
 
 sub finalize_config {
@@ -43,13 +43,11 @@ sub finalize_config {
 # Private method
 
 sub _inflate {
-   my ($app, $attr, @rest) = @_;
-
-   $attr = lc $attr;
+   my ($app, $attr, @rest) = @_; $attr = lc $attr;
 
    return $app->path_to( $rest[0] ) if ($attr eq q(home));
 
-   my @parts = ( $app->_inflation_class->$attr(), split m{ / }mx, $rest[0] );
+   my @parts = ($app->_inflator->$attr(), split m{ $SEP }mx, $rest[0]);
    my $path  = Path::Class::Dir->new(  @parts );
       $path  = Path::Class::File->new( @parts ) unless (-d $path);
 
@@ -68,7 +66,7 @@ Catalyst::Plugin::InflateMore - Inflates symbols in application config
 
 =head1 Version
 
-0.1.$Revision: 36 $
+0.1.$Revision: 41 $
 
 =head1 Synopsis
 
@@ -86,6 +84,9 @@ is defined in the inflation class
 The I<Plugin::InflateMore> attribute in the application config hash
 contains the name of the class whoose methods will do the actual
 inflating
+
+Symbols should always use the forward slash as a path separator regardless
+of OS type, i.e. I<__appldir(var/logs)__>
 
 =head1 Subroutines/Methods
 

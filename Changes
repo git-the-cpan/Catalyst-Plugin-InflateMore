@@ -1,5 +1,7 @@
 Revision history for Catalyst::Plugin::InflateMore
 
+         - Documented use of / as seperator character in paths
+
 0.1.36   12/11/2008
          - Added Test::Pod dependency to stop NAs for NOTESTS
 

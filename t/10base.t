@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-# @(#)$Id: 10base.t 35 2008-11-14 03:41:14Z pjf $
+# @(#)$Id: 10base.t 40 2009-02-22 02:49:21Z pjf $
 
 use strict;
 use warnings;
@@ -9,11 +9,12 @@ use FindBin qw($Bin);
 use lib qq($Bin/../lib);
 use Test::More;
 
-use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 35 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 40 $ =~ /\d+/gmx );
 
 BEGIN {
-   if ($ENV{AUTOMATED_TESTING}
-       || ($ENV{PERL5OPT} || q()) =~ m{ CPAN-Reporter }mx) {
+   if ($ENV{AUTOMATED_TESTING} || $ENV{PERL_CR_SMOKER_CURRENT}
+       || ($ENV{PERL5OPT} || q()) =~ m{ CPAN-Reporter }mx
+       || ($ENV{PERL5_CPANPLUS_IS_RUNNING} && $ENV{PERL5_CPAN_IS_RUNNING})) {
       plan skip_all => q(CPAN Testing stopped);
    }
 

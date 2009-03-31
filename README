@@ -2,7 +2,7 @@ Name
     Catalyst::Plugin::InflateMore - Inflates symbols in application config
 
 Version
-    0.1.$Revision: 36 $
+    0.1.$Revision: 41 $
 
 Synopsis
        use Catalyst qw(InflateMore ConfigLoader ...);
@@ -17,6 +17,9 @@ Configuration and Environment
     The *Plugin::InflateMore* attribute in the application config hash
     contains the name of the class whoose methods will do the actual
     inflating
+
+    Symbols should always use the forward slash as a path separator
+    regardless of OS type, i.e. *__appldir(var/logs)__*
 
 Subroutines/Methods
   setup
