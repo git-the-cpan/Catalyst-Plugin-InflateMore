@@ -1,5 +1,11 @@
 Revision history for Catalyst::Plugin::InflateMore
 
+0.2      12/06/2009
+         - Improved testing idioms
+         - Updated POD coverage tests
+
+0.1.43   05/04/2009
+         - More crap for CPAN testing
          - Documented use of / as seperator character in paths
 
 0.1.36   12/11/2008

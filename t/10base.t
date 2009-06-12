@@ -1,20 +1,18 @@
-#!/usr/bin/perl
-
-# @(#)$Id: 10base.t 40 2009-02-22 02:49:21Z pjf $
+# @(#)$Id: 10base.t 52 2009-06-12 12:00:20Z pjf $
 
 use strict;
 use warnings;
-use English qw(-no_match_vars);
-use FindBin qw($Bin);
-use lib qq($Bin/../lib);
-use Test::More;
+use version; our $VERSION = qv( sprintf '0.2.%d', q$Rev: 52 $ =~ /\d+/gmx );
+use File::Spec::Functions;
+use FindBin qw( $Bin );
+use lib catdir( $Bin, updir, q(lib) );
 
-use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 40 $ =~ /\d+/gmx );
+use English qw( -no_match_vars );
+use Test::More;
 
 BEGIN {
    if ($ENV{AUTOMATED_TESTING} || $ENV{PERL_CR_SMOKER_CURRENT}
-       || ($ENV{PERL5OPT} || q()) =~ m{ CPAN-Reporter }mx
-       || ($ENV{PERL5_CPANPLUS_IS_RUNNING} && $ENV{PERL5_CPAN_IS_RUNNING})) {
+       || ($ENV{PERL5OPT} || q()) =~ m{ CPAN-Reporter }mx) {
       plan skip_all => q(CPAN Testing stopped);
    }
 
@@ -48,3 +46,8 @@ ok( MyApp->config->{appldir} eq q(__APPLDIR__), q(Raw token) );
 MyApp->finalize_config;
 
 ok( MyApp->config->{appldir} eq q(derived), q(Derived at runtime) );
+
+# Local Variables:
+# mode: perl
+# tab-width: 3
+# End:
