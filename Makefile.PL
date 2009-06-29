@@ -19,6 +19,7 @@ WriteMakefile
                            'Data::Visitor' => '0.08',
                            'Path::Class' => '0.16',
                            'Test::More' => '0.74',
+                           'parent' => '0.221',
                            'version' => '0.74'
                          },
           'INSTALLDIRS' => 'site',

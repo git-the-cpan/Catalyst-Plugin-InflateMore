@@ -1,20 +1,20 @@
-package Catalyst::Plugin::InflateMore;
+# @(#)$Id: InflateMore.pm 66 2009-06-29 16:45:33Z pjf $
 
-# @(#)$Id: InflateMore.pm 56 2009-06-12 12:33:36Z pjf $
+package Catalyst::Plugin::InflateMore;
 
 use strict;
 use warnings;
-use base qw(Class::Data::Accessor);
+use version; our $VERSION = qv( sprintf '0.2.%d', q$Rev: 66 $ =~ /\d+/gmx );
+use parent qw(Class::Data::Accessor);
+
 use Catalyst::Utils;
 use Class::C3;
 use Data::Visitor::Callback;
 use Path::Class;
 
-use version; our $VERSION = qv( sprintf '0.2.%d', q$Rev: 56 $ =~ /\d+/gmx );
+my $SEP = q(/);
 
 __PACKAGE__->mk_classaccessors( qw(_inflator) );
-
-my $SEP = q(/);
 
 sub setup {
    my ($app, @rest) = @_;
@@ -66,7 +66,7 @@ Catalyst::Plugin::InflateMore - Inflates symbols in application config
 
 =head1 Version
 
-0.2.$Revision: 56 $
+0.2.$Revision: 66 $
 
 =head1 Synopsis
 
@@ -141,7 +141,7 @@ Peter Flanigan,  C<< <Support at RoxSoft.co.uk> >>
 
 =head1 License and Copyright
 
-Copyright (c) 2008 Peter Flanigan. All rights reserved
+Copyright (c) 2008-2009 Peter Flanigan. All rights reserved
 
 This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself. See L<perlartistic>
@@ -156,4 +156,3 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE
 # mode: perl
 # tab-width: 3
 # End:
-
