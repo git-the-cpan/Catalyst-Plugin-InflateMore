@@ -1,5 +1,15 @@
 Revision history for Catalyst::Plugin::InflateMore
 
+0.3.76   2009-07-29
+         - No longer uses Class::Data::Inheritable
+
+0.2.71   2009-07-13
+         - Made inflate_symbol an anon. code ref to not pollute namespace
+
+0.2.69   2009-07-12
+         - Switch to MRO::Compat
+         - Changes _inflate to _inflate_symbol to be more unique
+
 0.2.66   29/06/2009
          - Uses new signature key
          - Use parent not base

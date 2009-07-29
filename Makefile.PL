@@ -13,12 +13,11 @@ WriteMakefile
           'NAME' => 'Catalyst::Plugin::InflateMore',
           'VERSION_FROM' => 'lib/Catalyst/Plugin/InflateMore.pm',
           'PREREQ_PM' => {
-                           'Catalyst' => '5.7012',
-                           'Class::C3' => '0.19',
-                           'Class::Data::Accessor' => '0.04001',
+                           'Catalyst' => '5.80007',
                            'Data::Visitor' => '0.08',
                            'Path::Class' => '0.16',
                            'Test::More' => '0.74',
+                           'namespace::autoclean' => '0.05',
                            'parent' => '0.221',
                            'version' => '0.74'
                          },

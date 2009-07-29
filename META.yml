@@ -1,6 +1,6 @@
 ---
 name: Catalyst-Plugin-InflateMore
-version: 0.2.66
+version: 0.3.76
 author:
   - 'Peter Flanigan,  C<< <Support at RoxSoft.co.uk> >>'
 abstract: Inflates symbols in application config
@@ -11,11 +11,10 @@ configure_requires:
   ExtUtils::MakeMaker: 6.42
   version: 0.74
 requires:
-  Catalyst: 5.7012
-  Class::C3: 0.19
-  Class::Data::Accessor: 0.04001
+  Catalyst: 5.80007
   Data::Visitor: 0.08
   Path::Class: 0.16
+  namespace::autoclean: 0.05
   parent: 0.221
   perl: 5.008
   version: 0.74
@@ -24,7 +23,7 @@ build_requires:
 provides:
   Catalyst::Plugin::InflateMore:
     file: lib/Catalyst/Plugin/InflateMore.pm
-    version: 0.2.66
+    version: 0.3.76
 generated_by: Module::Build version 0.31
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html

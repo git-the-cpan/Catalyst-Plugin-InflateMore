@@ -1,54 +1,54 @@
-# @(#)$Id: InflateMore.pm 66 2009-06-29 16:45:33Z pjf $
+# @(#)$Id: InflateMore.pm 76 2009-07-29 17:00:18Z pjf $
 
 package Catalyst::Plugin::InflateMore;
 
 use strict;
 use warnings;
-use version; our $VERSION = qv( sprintf '0.2.%d', q$Rev: 66 $ =~ /\d+/gmx );
-use parent qw(Class::Data::Accessor);
+use namespace::autoclean;
+use version; our $VERSION = qv( sprintf '0.3.%d', q$Rev: 76 $ =~ /\d+/gmx );
 
 use Catalyst::Utils;
-use Class::C3;
 use Data::Visitor::Callback;
 use Path::Class;
 
+my $KEY = q(Plugin::InflateMore);
 my $SEP = q(/);
 
-__PACKAGE__->mk_classaccessors( qw(_inflator) );
-
 sub setup {
-   my ($app, @rest) = @_;
+   my ($self, @rest) = @_;
 
-   if (my $class = delete $app->config->{ 'Plugin::InflateMore' }) {
+   $self->mk_classdata( q(_inflator) );
+
+   if (my $class = $self->config->{ $KEY }) {
       Catalyst::Utils::ensure_class_loaded( $class );
-      $app->_inflator( $class->new( $app ) );
+      $self->_inflator( $class->new( $self ) );
    }
 
-   return $app->next::method( @rest );
+   return $self->next::method( @rest );
 }
 
 sub finalize_config {
-   my $app = shift;
-   my $v   = Data::Visitor::Callback->new(
+   my $self = shift;
+   my $v    = Data::Visitor::Callback->new(
       plain_value => sub {
          return unless defined $_;
-         s{ __(.+?)\((.+?)\)__ }{$app->_inflate( $1, $2  )}egmx;
-         s{ __(.+?)__          }{$app->_inflate( $1, q() )}egmx;
-      });
+         s{ __(.+?)\((.+?)\)__ }{$self->_inflate_symbols( $1, $2  )}egmx;
+         s{ __(.+?)__          }{$self->_inflate_symbols( $1, q() )}egmx;
+      } );
 
-   $v->visit( $app->config );
+   $v->visit( $self->config );
    return;
 }
 
 # Private method
 
-sub _inflate {
-   my ($app, $attr, @rest) = @_; $attr = lc $attr;
+sub _inflate_symbols {
+   my ($self, $attr, @rest) = @_; $attr = lc $attr;
 
-   return $app->path_to( $rest[0] ) if ($attr eq q(home));
+   return $self->path_to( $rest[0] ) if ($attr eq q(home));
 
-   my @parts = ($app->_inflator->$attr(), split m{ $SEP }mx, $rest[0]);
-   my $path  = Path::Class::Dir->new(  @parts );
+   my @parts = ($self->_inflator->$attr(), split m{ $SEP }mx, $rest[0]);
+   my $path  = Path::Class::Dir->new ( @parts );
       $path  = Path::Class::File->new( @parts ) unless (-d $path);
 
    return $path->cleanup;
@@ -66,11 +66,28 @@ Catalyst::Plugin::InflateMore - Inflates symbols in application config
 
 =head1 Version
 
-0.2.$Revision: 66 $
+0.3.$Revision: 76 $
 
 =head1 Synopsis
 
+   package YourApp;
+
    use Catalyst qw(InflateMore ConfigLoader ...);
+
+   # In your applications config file
+   <appldir>__APPLDIR__</appldir>
+   <binsdir>__BINSDIR__</binsdir>
+   <libsdir>__LIBSDIR__</libsdir>
+   <ctrldir>__appldir(var/etc)__</ctrldir>
+   <dbasedir>__appldir(var/db)__</dbasedir>
+   <logfile>__appldir(var/logs/server.log)__</logfile>
+   <logsdir>__appldir(var/logs)__</logsdir>
+   <root>__appldir(var/root)__</root>
+   <rprtdir>__appldir(var/root/reports)__</rprtdir>
+   <rundir>__appldir(var/run)__</rundir>
+   <skindir>__appldir(var/root/skins)__</skindir>
+   <tempdir>__appldir(var/tmp)__</tempdir>
+   <vardir>__appldir(var)__</vardir>
 
 =head1 Description
 
@@ -96,10 +113,10 @@ Create an instance of the class that will do the inflating
 
 =head2 finalize_config
 
-Override L<Catalyst::Plugin::ConfigLoader> method. Inflates any
-symbols matching the patters I<__SYMBOL__> and I<__symbol( value )__>
+Override L<Catalyst::Plugin::ConfigLoader> method. Will inflate any
+symbols matching the patterns I<__SYMBOL__> and I<__symbol( value )__>
 
-=head2 _inflate
+=head2 _inflate_symbols
 
 Call the appropriate method to get the base path and append any
 arguments. Returns a L<Path::Class> object representing the arguments
@@ -114,10 +131,6 @@ None
 =over 3
 
 =item L<Catalyst::Utils>
-
-=item L<Class::C3>
-
-=item L<Class::Data::Accessor>
 
 =item L<Data::Visitor::Callback>
 
@@ -138,6 +151,10 @@ Patches are welcome
 =head1 Author
 
 Peter Flanigan,  C<< <Support at RoxSoft.co.uk> >>
+
+=head1 Acknowledgements
+
+Larry Wall - For the Perl programming language
 
 =head1 License and Copyright
 
