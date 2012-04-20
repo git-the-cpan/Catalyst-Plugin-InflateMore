@@ -1,15 +1,15 @@
-# @(#)$Id: InflateMore.pm 76 2009-07-29 17:00:18Z pjf $
+# @(#)$Id: InflateMore.pm 78 2012-04-19 23:53:30Z pjf $
 
 package Catalyst::Plugin::InflateMore;
 
 use strict;
 use warnings;
 use namespace::autoclean;
-use version; our $VERSION = qv( sprintf '0.3.%d', q$Rev: 76 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.4.%d', q$Rev: 78 $ =~ /\d+/gmx );
 
 use Catalyst::Utils;
 use Data::Visitor::Callback;
-use Path::Class;
+use Path::Class ();
 
 my $KEY = q(Plugin::InflateMore);
 my $SEP = q(/);
@@ -45,11 +45,12 @@ sub finalize_config {
 sub _inflate_symbols {
    my ($self, $attr, @rest) = @_; $attr = lc $attr;
 
-   return $self->path_to( $rest[0] ) if ($attr eq q(home));
+   $attr eq q(home) and return $self->path_to( $rest[ 0 ] );
 
-   my @parts = ($self->_inflator->$attr(), split m{ $SEP }mx, $rest[0]);
-   my $path  = Path::Class::Dir->new ( @parts );
-      $path  = Path::Class::File->new( @parts ) unless (-d $path);
+   my @parts = ($self->_inflator->$attr(), split m{ $SEP }mx, $rest[ 0 ]);
+   my $path  = Path::Class::Dir->new( @parts );
+
+   -d $path or $path = Path::Class::File->new( @parts );
 
    return $path->cleanup;
 }
@@ -66,7 +67,7 @@ Catalyst::Plugin::InflateMore - Inflates symbols in application config
 
 =head1 Version
 
-0.3.$Revision: 76 $
+0.4.$Revision: 78 $
 
 =head1 Synopsis
 
@@ -158,7 +159,7 @@ Larry Wall - For the Perl programming language
 
 =head1 License and Copyright
 
-Copyright (c) 2008-2009 Peter Flanigan. All rights reserved
+Copyright (c) 2008-2012 Peter Flanigan. All rights reserved
 
 This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself. See L<perlartistic>

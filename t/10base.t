@@ -1,22 +1,20 @@
-# @(#)$Id: 10base.t 73 2009-07-19 11:48:36Z pjf $
+# @(#)$Id: 10base.t 78 2012-04-19 23:53:30Z pjf $
 
 use strict;
 use warnings;
-use version; our $VERSION = qv( sprintf '0.3.%d', q$Rev: 73 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.4.%d', q$Rev: 78 $ =~ /\d+/gmx );
 use File::Spec::Functions;
 use FindBin qw( $Bin );
 use lib catdir( $Bin, updir, q(lib) );
 
-use English qw( -no_match_vars );
+use Module::Build;
 use Test::More;
 
 BEGIN {
-   if ($ENV{AUTOMATED_TESTING}  || $ENV{PERL_CR_SMOKER_CURRENT} ||
-       $ENV{PERL5_MINISMOKEBOX} || $ENV{PERL5_YACSMOKE_BASE}) {
-      plan skip_all => q(CPAN Testing stopped);
-   }
+   my $current = eval { Module::Build->current };
 
-   plan tests => 2;
+   $current and $current->notes->{stop_tests}
+            and plan skip_all => $current->notes->{stop_tests};
 }
 
 {
@@ -41,11 +39,13 @@ BEGIN {
     __PACKAGE__->setup;
 }
 
-ok( MyApp->config->{appldir} eq q(__APPLDIR__), q(Raw token) );
+is( MyApp->config->{appldir}, q(__APPLDIR__), 'Raw token' );
 
 MyApp->finalize_config;
 
-ok( MyApp->config->{appldir} eq q(derived), q(Derived at runtime) );
+is( MyApp->config->{appldir}, q(derived), 'Derived at runtime' );
+
+done_testing;
 
 # Local Variables:
 # mode: perl

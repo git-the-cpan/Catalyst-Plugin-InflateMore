@@ -1,30 +1,38 @@
 ---
-name: Catalyst-Plugin-InflateMore
-version: 0.3.76
+abstract: 'Inflates symbols in application config'
 author:
   - 'Peter Flanigan,  C<< <Support at RoxSoft.co.uk> >>'
-abstract: Inflates symbols in application config
-license: perl
-resources:
-  license: http://dev.perl.org/licenses/
-configure_requires:
-  ExtUtils::MakeMaker: 6.42
-  version: 0.74
-requires:
-  Catalyst: 5.80007
-  Data::Visitor: 0.08
-  Path::Class: 0.16
-  namespace::autoclean: 0.05
-  parent: 0.221
-  perl: 5.008
-  version: 0.74
 build_requires:
+  MRO::Compat: 0.11
   Test::More: 0.74
-provides:
-  Catalyst::Plugin::InflateMore:
-    file: lib/Catalyst/Plugin/InflateMore.pm
-    version: 0.3.76
-generated_by: Module::Build version 0.31
+configure_requires:
+  Module::Build: 0.38
+  version: 0.74
+dynamic_config: 1
+generated_by: 'Module::Build version 0.38, CPAN::Meta::Converter version 2.112621'
+license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
+name: Catalyst-Plugin-InflateMore
+no_index:
+  directory:
+    - examples
+    - inc
+    - t
+provides:
+  Catalyst::Plugin::InflateMore:
+    file: lib/Catalyst/Plugin/InflateMore.pm
+    version: v0.4.78
+requires:
+  Catalyst: 5.9001
+  Data::Visitor: 0.08
+  Path::Class: 0.16
+  namespace::autoclean: 0.05
+  perl: 5.01
+  version: 0.74
+resources:
+  bugtracker: http://rt.cpan.org/NoAuth/Bugs.html?Dist=Catalyst-Plugin-InflateMore
+  homepage: http://www.roxsoft.co.uk
+  license: http://dev.perl.org/licenses/
+version: 0.4.78

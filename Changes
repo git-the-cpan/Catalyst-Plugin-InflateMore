@@ -1,5 +1,9 @@
 Revision history for Catalyst::Plugin::InflateMore
 
+0.4.78   2012-04-19
+         - Turned CPAN testing on
+         - Updated toolchain to use inc::Bob
+
 0.3.76   2009-07-29
          - No longer uses Class::Data::Inheritable
 

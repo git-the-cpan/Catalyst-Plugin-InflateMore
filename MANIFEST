@@ -1,12 +1,15 @@
+Build.PL
 Changes
+inc/Bob.pm
+inc/CPANTesting.pm
 lib/Catalyst/Plugin/InflateMore.pm
 LICENSE
 MANIFEST			This list of files
+META.json
+META.yml
+README
 t/01always_pass.t
 t/02pod.t
 t/03podcoverage.t
 t/10base.t
-Makefile.PL
-README
-META.yml
 SIGNATURE    Added here by Module::Build
