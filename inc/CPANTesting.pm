@@ -1,11 +1,11 @@
-# @(#)$Id: CPANTesting.pm 78 2012-04-19 23:53:30Z pjf $
+# @(#)$Id: CPANTesting.pm 81 2012-07-15 00:24:12Z pjf $
 
 package CPANTesting;
 
 use strict;
 use warnings;
 
-my $uname = qx(uname -a); my $osname = lc $^O;
+my $osname = lc $^O; my $uname = qx(uname -a);
 
 sub broken_toolchain {
    return 0;

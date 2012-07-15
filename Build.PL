@@ -1,9 +1,9 @@
-# @(#)$Id: Build.PL 79 2012-04-20 11:09:32Z pjf $
+# @(#)$Id: Build.PL 80 2012-05-20 00:05:43Z pjf $
 
 use strict;
 use warnings;
 use inc::Bob; # Module::Build subclass
-use version; our $VERSION = qv( sprintf '0.4.%d', q$Rev: 79 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.4.%d', q$Rev: 80 $ =~ /\d+/gmx );
 
 Bob->new( {
    module     => q(Catalyst::Plugin::InflateMore),
