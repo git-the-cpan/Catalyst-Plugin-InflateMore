@@ -1,5 +1,10 @@
 Revision history for Catalyst::Plugin::InflateMore
 
+0.5.83   2012-10-18
+         - Upgraded inc/Bob.pm to v1.5
+         - If the inflation class provides an inflate method call it in
+           preference to a method with the same name as the symbol
+
 0.4.81   2012-07-15
          - Removed execute bit from Build.PL
 

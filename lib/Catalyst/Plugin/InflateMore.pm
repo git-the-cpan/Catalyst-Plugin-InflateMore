@@ -1,11 +1,11 @@
-# @(#)$Id: InflateMore.pm 81 2012-07-15 00:24:12Z pjf $
+# @(#)$Id: InflateMore.pm 83 2012-10-18 16:18:47Z pjf $
 
 package Catalyst::Plugin::InflateMore;
 
 use strict;
 use warnings;
 use namespace::autoclean;
-use version; our $VERSION = qv( sprintf '0.4.%d', q$Rev: 81 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.5.%d', q$Rev: 83 $ =~ /\d+/gmx );
 
 use Catalyst::Utils;
 use Data::Visitor::Callback;
@@ -47,6 +47,9 @@ sub _inflate_symbols {
 
    $attr eq q(home) and return $self->path_to( $rest[ 0 ] );
 
+   $self->_inflator->can( q(inflate) )
+      and return $self->_inflator->inflate( $attr, @rest );
+
    my @parts = ($self->_inflator->$attr(), split m{ $SEP }mx, $rest[ 0 ]);
    my $path  = Path::Class::Dir->new( @parts );
 
@@ -67,7 +70,7 @@ Catalyst::Plugin::InflateMore - Inflates symbols in application config
 
 =head1 Version
 
-0.4.$Revision: 81 $
+0.5.$Revision: 83 $
 
 =head1 Synopsis
 

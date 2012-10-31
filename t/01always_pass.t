@@ -1,7 +1,9 @@
-# @(#)$Id: 01always_pass.t 48 2009-04-16 16:34:16Z pjf $
+# @(#)$Id: 01always_pass.t 83 2012-10-18 16:18:47Z pjf $
 
 use strict;
 use warnings;
+
+use Sys::Hostname; my $host = lc hostname; warn "Hostname: ${host}\n";
 
 print "1..1\n";
 print "ok\n";

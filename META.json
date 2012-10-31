@@ -47,7 +47,7 @@
    "provides" : {
       "Catalyst::Plugin::InflateMore" : {
          "file" : "lib/Catalyst/Plugin/InflateMore.pm",
-         "version" : "v0.4.81"
+         "version" : "v0.5.83"
       }
    },
    "release_status" : "stable",
@@ -60,5 +60,5 @@
          "http://dev.perl.org/licenses/"
       ]
    },
-   "version" : "0.4.81"
+   "version" : "0.5.83"
 }
