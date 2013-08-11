@@ -1,38 +1,24 @@
 ---
 abstract: 'Inflates symbols in application config'
 author:
-  - 'Peter Flanigan,  C<< <Support at RoxSoft.co.uk> >>'
+  - 'Peter Flanigan <pjfl@cpan.org>'
 build_requires:
-  MRO::Compat: 0.11
-  Test::More: 0.74
+  Module::Build: 0.4004
+  version: 0.88
 configure_requires:
-  Module::Build: 0.38
-  version: 0.74
-dynamic_config: 1
-generated_by: 'Module::Build version 0.38, CPAN::Meta::Converter version 2.112621'
+  Module::Build: 0.4004
+  version: 0.88
+dynamic_config: 0
+generated_by: 'Dist::Zilla version 4.300033, CPAN::Meta::Converter version 2.120921'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
 name: Catalyst-Plugin-InflateMore
-no_index:
-  directory:
-    - examples
-    - inc
-    - t
-provides:
-  Catalyst::Plugin::InflateMore:
-    file: lib/Catalyst/Plugin/InflateMore.pm
-    version: v0.5.83
 requires:
-  Catalyst: 5.9001
+  Catalyst: 5.90010
   Data::Visitor: 0.08
   Path::Class: 0.16
   namespace::autoclean: 0.05
-  perl: 5.01
-  version: 0.74
-resources:
-  bugtracker: http://rt.cpan.org/NoAuth/Bugs.html?Dist=Catalyst-Plugin-InflateMore
-  homepage: http://www.roxsoft.co.uk
-  license: http://dev.perl.org/licenses/
-version: 0.5.83
+  version: 0.88
+version: 0.6.1

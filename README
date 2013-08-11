@@ -1,9 +1,6 @@
 Name
     Catalyst::Plugin::InflateMore - Inflates symbols in application config
 
-Version
-    0.5.$Revision: 83 $
-
 Synopsis
        package YourApp;
 
@@ -24,15 +21,18 @@ Synopsis
        <tempdir>__appldir(var/tmp)__</tempdir>
        <vardir>__appldir(var)__</vardir>
 
+Version
+    This documents version v0.6.$Rev: 1 $ of Catalyst::Plugin::InflateMore
+
 Description
     If symbols like *__MYSYMBOL__*, *__BINSDIR__*, or *__binsdir()__* are
     present in the application config they will be inflated to the
-    appropriate directory paths if the coresponding lower case method name
+    appropriate directory paths if the corresponding lower case method name
     is defined in the inflation class
 
 Configuration and Environment
     The *Plugin::InflateMore* attribute in the application config hash
-    contains the name of the class whoose methods will do the actual
+    contains the name of the class whose methods will do the actual
     inflating
 
     Symbols should always use the forward slash as a path separator
@@ -63,17 +63,18 @@ Incompatibilities
     There are no known incompatibilities in this module
 
 Bugs and Limitations
-    There are no known bugs in this module. Please report problems to the
-    address below. Patches are welcome
-
-Author
-    Peter Flanigan, "<Support at RoxSoft.co.uk>"
+    There are no known bugs in this module. Please report problems to
+    http://rt.cpan.org/NoAuth/Bugs.html?Dist=Catalyst-Plugin-InflateMore.
+    Patches are welcome
 
 Acknowledgements
     Larry Wall - For the Perl programming language
 
+Author
+    Peter Flanigan, "<pjfl@cpan.org>"
+
 License and Copyright
-    Copyright (c) 2008-2012 Peter Flanigan. All rights reserved
+    Copyright (c) 2013 Peter Flanigan. All rights reserved
 
     This program is free software; you can redistribute it and/or modify it
     under the same terms as Perl itself. See perlartistic

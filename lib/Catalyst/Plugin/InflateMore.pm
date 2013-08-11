@@ -1,18 +1,17 @@
-# @(#)$Id: InflateMore.pm 83 2012-10-18 16:18:47Z pjf $
+# @(#)Ident: InflateMore.pm 2013-08-11 12:53 pjf ;
 
 package Catalyst::Plugin::InflateMore;
 
 use strict;
 use warnings;
 use namespace::autoclean;
-use version; our $VERSION = qv( sprintf '0.5.%d', q$Rev: 83 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.6.%d', q$Rev: 1 $ =~ /\d+/gmx );
 
 use Catalyst::Utils;
 use Data::Visitor::Callback;
 use Path::Class ();
 
-my $KEY = q(Plugin::InflateMore);
-my $SEP = q(/);
+my $KEY = 'Plugin::InflateMore'; my $SEP = '/';
 
 sub setup {
    my ($self, @rest) = @_;
@@ -40,8 +39,7 @@ sub finalize_config {
    return;
 }
 
-# Private method
-
+# Private methods
 sub _inflate_symbols {
    my ($self, $attr, @rest) = @_; $attr = lc $attr;
 
@@ -64,13 +62,11 @@ __END__
 
 =pod
 
+=encoding utf8
+
 =head1 Name
 
 Catalyst::Plugin::InflateMore - Inflates symbols in application config
-
-=head1 Version
-
-0.5.$Revision: 83 $
 
 =head1 Synopsis
 
@@ -93,17 +89,21 @@ Catalyst::Plugin::InflateMore - Inflates symbols in application config
    <tempdir>__appldir(var/tmp)__</tempdir>
    <vardir>__appldir(var)__</vardir>
 
+=head1 Version
+
+This documents version v0.6.$Rev: 1 $ of L<Catalyst::Plugin::InflateMore>
+
 =head1 Description
 
 If symbols like I<__MYSYMBOL__>, I<__BINSDIR__>, or I<__binsdir()__>
 are present in the application config they will be inflated to the
-appropriate directory paths if the coresponding lower case method name
+appropriate directory paths if the corresponding lower case method name
 is defined in the inflation class
 
 =head1 Configuration and Environment
 
 The I<Plugin::InflateMore> attribute in the application config hash
-contains the name of the class whoose methods will do the actual
+contains the name of the class whose methods will do the actual
 inflating
 
 Symbols should always use the forward slash as a path separator regardless
@@ -148,21 +148,21 @@ There are no known incompatibilities in this module
 
 =head1 Bugs and Limitations
 
-There are no known bugs in this module.
-Please report problems to the address below.
+There are no known bugs in this module. Please report problems to
+http://rt.cpan.org/NoAuth/Bugs.html?Dist=Catalyst-Plugin-InflateMore.
 Patches are welcome
-
-=head1 Author
-
-Peter Flanigan,  C<< <Support at RoxSoft.co.uk> >>
 
 =head1 Acknowledgements
 
 Larry Wall - For the Perl programming language
 
+=head1 Author
+
+Peter Flanigan, C<< <pjfl@cpan.org> >>
+
 =head1 License and Copyright
 
-Copyright (c) 2008-2012 Peter Flanigan. All rights reserved
+Copyright (c) 2013 Peter Flanigan. All rights reserved
 
 This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself. See L<perlartistic>
@@ -177,4 +177,3 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE
 # mode: perl
 # tab-width: 3
 # End:
-
