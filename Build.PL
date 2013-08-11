@@ -19,7 +19,7 @@ my %module_build_args = (
     "Peter Flanigan <pjfl\@cpan.org>"
   ],
   "dist_name" => "Catalyst-Plugin-InflateMore",
-  "dist_version" => "0.6.1",
+  "dist_version" => "0.6.2",
   "license" => "perl",
   "module_name" => "Catalyst::Plugin::InflateMore",
   "recommends" => {},

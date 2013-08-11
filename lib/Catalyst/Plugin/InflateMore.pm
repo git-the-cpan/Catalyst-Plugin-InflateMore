@@ -1,11 +1,11 @@
-# @(#)Ident: InflateMore.pm 2013-08-11 12:53 pjf ;
+# @(#)Ident: InflateMore.pm 2013-08-11 15:07 pjf ;
 
 package Catalyst::Plugin::InflateMore;
 
 use strict;
 use warnings;
 use namespace::autoclean;
-use version; our $VERSION = qv( sprintf '0.6.%d', q$Rev: 1 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.6.%d', q$Rev: 2 $ =~ /\d+/gmx );
 
 use Catalyst::Utils;
 use Data::Visitor::Callback;
@@ -91,7 +91,7 @@ Catalyst::Plugin::InflateMore - Inflates symbols in application config
 
 =head1 Version
 
-This documents version v0.6.$Rev: 1 $ of L<Catalyst::Plugin::InflateMore>
+This documents version v0.6.$Rev: 2 $ of L<Catalyst::Plugin::InflateMore>
 
 =head1 Description
 

@@ -15,10 +15,14 @@ meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
 name: Catalyst-Plugin-InflateMore
+provides:
+  Catalyst::Plugin::InflateMore:
+    file: lib/Catalyst/Plugin/InflateMore.pm
+    version: v0.6.2
 requires:
   Catalyst: 5.90010
   Data::Visitor: 0.08
   Path::Class: 0.16
   namespace::autoclean: 0.05
   version: 0.88
-version: 0.6.1
+version: 0.6.2
