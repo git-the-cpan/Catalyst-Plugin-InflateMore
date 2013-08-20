@@ -1,11 +1,11 @@
-# @(#)Ident: InflateMore.pm 2013-08-11 15:07 pjf ;
+# @(#)Ident: InflateMore.pm 2013-08-12 15:40 pjf ;
 
 package Catalyst::Plugin::InflateMore;
 
 use strict;
 use warnings;
 use namespace::autoclean;
-use version; our $VERSION = qv( sprintf '0.6.%d', q$Rev: 2 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.7.%d', q$Rev: 1 $ =~ /\d+/gmx );
 
 use Catalyst::Utils;
 use Data::Visitor::Callback;
@@ -14,9 +14,7 @@ use Path::Class ();
 my $KEY = 'Plugin::InflateMore'; my $SEP = '/';
 
 sub setup {
-   my ($self, @rest) = @_;
-
-   $self->mk_classdata( q(_inflator) );
+   my ($self, @rest) = @_; $self->mk_classdata( '_inflator' );
 
    if (my $class = $self->config->{ $KEY }) {
       Catalyst::Utils::ensure_class_loaded( $class );
@@ -28,12 +26,12 @@ sub setup {
 
 sub finalize_config {
    my $self = shift;
-   my $v    = Data::Visitor::Callback->new(
-      plain_value => sub {
-         return unless defined $_;
-         s{ __(.+?)\((.+?)\)__ }{$self->_inflate_symbols( $1, $2  )}egmx;
-         s{ __(.+?)__          }{$self->_inflate_symbols( $1, q() )}egmx;
-      } );
+   my $v    = Data::Visitor::Callback->new
+      (  plain_value => sub {
+            return unless defined $_;
+            s{ __(.+?)\((.+?)\)__ }{$self->_inflate_symbols( $1, $2  )}egmx;
+            s{ __(.+?)__          }{$self->_inflate_symbols( $1, q() )}egmx;
+         } );
 
    $v->visit( $self->config );
    return;
@@ -43,9 +41,9 @@ sub finalize_config {
 sub _inflate_symbols {
    my ($self, $attr, @rest) = @_; $attr = lc $attr;
 
-   $attr eq q(home) and return $self->path_to( $rest[ 0 ] );
+   $attr eq 'home' and return $self->path_to( $rest[ 0 ] );
 
-   $self->_inflator->can( q(inflate) )
+   $self->_inflator->can( 'inflate' )
       and return $self->_inflator->inflate( $attr, @rest );
 
    my @parts = ($self->_inflator->$attr(), split m{ $SEP }mx, $rest[ 0 ]);
@@ -91,7 +89,7 @@ Catalyst::Plugin::InflateMore - Inflates symbols in application config
 
 =head1 Version
 
-This documents version v0.6.$Rev: 2 $ of L<Catalyst::Plugin::InflateMore>
+This documents version v0.7.$Rev: 1 $ of L<Catalyst::Plugin::InflateMore>
 
 =head1 Description
 
@@ -177,3 +175,4 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE
 # mode: perl
 # tab-width: 3
 # End:
+# vim: expandtab shiftwidth=3:

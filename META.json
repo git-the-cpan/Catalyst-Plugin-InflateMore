@@ -3,7 +3,7 @@
    "author" : [
       "Peter Flanigan <pjfl@cpan.org>"
    ],
-   "dynamic_config" : 0,
+   "dynamic_config" : "1",
    "generated_by" : "Dist::Zilla version 4.300033, CPAN::Meta::Converter version 2.120921",
    "license" : [
       "perl_5"
@@ -13,6 +13,14 @@
       "version" : "2"
    },
    "name" : "Catalyst-Plugin-InflateMore",
+   "no_index" : {
+      "directory" : [
+         "examples",
+         "inc",
+         "share",
+         "t"
+      ]
+   },
    "prereqs" : {
       "build" : {
          "requires" : {
@@ -32,6 +40,7 @@
             "Data::Visitor" : "0.08",
             "Path::Class" : "0.16",
             "namespace::autoclean" : "0.05",
+            "perl" : "5.008",
             "version" : "0.88"
          }
       }
@@ -39,10 +48,20 @@
    "provides" : {
       "Catalyst::Plugin::InflateMore" : {
          "file" : "lib/Catalyst/Plugin/InflateMore.pm",
-         "version" : "v0.6.2"
+         "version" : "v0.7.1"
       }
    },
    "release_status" : "stable",
-   "version" : "0.6.2"
+   "resources" : {
+      "bugtracker" : {
+         "mailto" : "bug-Catalyst-Plugin-InflateMore@rt.cpan.org",
+         "web" : "http://rt.cpan.org/NoAuth/Bugs.html?Dist=Catalyst-Plugin-InflateMore"
+      },
+      "homepage" : "https://metacpan.org/author/PJFL",
+      "license" : [
+         "http://dev.perl.org/licenses/"
+      ]
+   },
+   "version" : "0.7.1"
 }
 

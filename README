@@ -22,7 +22,7 @@ Synopsis
        <vardir>__appldir(var)__</vardir>
 
 Version
-    This documents version v0.6.$Rev: 2 $ of Catalyst::Plugin::InflateMore
+    This documents version v0.7.$Rev: 1 $ of Catalyst::Plugin::InflateMore
 
 Description
     If symbols like *__MYSYMBOL__*, *__BINSDIR__*, or *__binsdir()__* are

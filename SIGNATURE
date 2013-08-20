@@ -1,0 +1,43 @@
+This file contains message digests of all files listed in MANIFEST,
+signed via the Module::Signature module, version 0.66.
+
+To verify the content in this distribution, first make sure you have
+Module::Signature installed, then type:
+
+    % cpansign -v
+
+It will check each file's integrity, as well as the signature's
+validity.  If "==> Signature verified OK! <==" is not displayed,
+the distribution may already have been compromised, and you should
+not run its Makefile.PL or Build.PL.
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+SHA1 a3378e56d5172e4a06f58d87532abb3b36d216a0 Build.PL
+SHA1 9b75ad091d1dd3d6673711188ef937c8642cec25 Changes
+SHA1 8835c6f04f0b79a12fb91025ee72f89d949d1d54 LICENSE
+SHA1 d69a35c3bfe99afbbd3a394ec62ac52aa2bf7c0e MANIFEST
+SHA1 9d073eaa2a7d4530baac589130fa03409248c005 META.json
+SHA1 bd64562b37fd91c162fc2f89ee23f2d7cbb52995 META.yml
+SHA1 39f4753841f9a36ddaaff32875d0dfab4bbc50e4 README
+SHA1 f13f61a93068796454f90b36bd67a0c76bdd6e46 lib/Catalyst/Plugin/InflateMore.pm
+SHA1 f9e2bfd075ed996b5da69d8057554f37f9e9236f t/01always_pass.t
+SHA1 5bd00eb03f1d739bb1e94faf081c5c03fb119973 t/02pod.t
+SHA1 3b0b8c839082ac9e966ff051af801856f400159b t/03podcoverage.t
+SHA1 1f01c1d05ea19986e962e9f81ba58aa82c16bcc6 t/04critic.t
+SHA1 5552c8372ae679b7906eaa97658820beb32dc81d t/05kwalitee.t
+SHA1 3e18c2b072413fd1106a6af62056cedfe16b1307 t/06yaml.t
+SHA1 9d3ed495407a59e51c36614db157748f8a7d0831 t/07podspelling.t
+SHA1 6365f2a6b8533d1ca8aa9f9a52a38b10970fb1c2 t/10test_script.t
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.10 (GNU/Linux)
+
+iQEcBAEBAgAGBQJSE/YwAAoJEK492j4Im1BpjGYIAMB7H7mLTaT8kRF7Io5XLt7H
+n796Y98Ue/fFbJPCjIE63FYxgyOC66rYuIPWgdBSqHiSN3iVVKplBwVRP4+Pe9MA
+H3Y6oZN17rXddKA4khMaUMdng4vJWP9QGsTpl5kON5UWpXKI4vrowP3+SWpes5AR
+wo4pyWJWM57mZ5qEizyLUpvsZxVEijZkk2/B/rv4VjpVIC7/FkIioDyJ/KxRFX08
+r4AHjziVMHZzmAMvVtzHh5I8zERqUt+A81k6oaOpnKOJFNlDohlPOdikO9RnJSPD
++eHxXl9WTpDLk1SqXHClEELzn2gLEgH2XBQexTPZ/3zSVP0kTNNOtXAKnIjekuU=
+=zuVi
+-----END PGP SIGNATURE-----

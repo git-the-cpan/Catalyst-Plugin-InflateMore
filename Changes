@@ -1,6 +1,11 @@
 Revision history for Catalyst::Plugin::InflateMore
 
-0.6.2     2013-08-11 16:10:06
+0.7.1     2013-08-21 00:05:15
+          - Fixed metadata
+
+0.6.4     2013-08-15 14:32:07
+          - Updated toolchain
+          - Added package signing
           - Added MetaProvides::Package to dist.ini
           - Converted from SVN to Git
 
